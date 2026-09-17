@@ -1,0 +1,7 @@
+pair,mode,auc,n_synth,n_real,top_features
+Cu 1.541,all,0.9995709989976611,11999,11972,coverage; noise_lag1_autocorr; sparsity; int_median; win_cover
+Cu 1.541,clean_window,0.9997940104442737,11289,9865,coverage; int_median; sparsity; noise_lag1_autocorr; win_cover
+Syncro 1.240,all,0.9999997777777778,12000,12000,coverage; noise_lag1_autocorr; bg_p05; fwhm_median; peak_density
+Syncro 1.240,clean_window,1.0,10139,10112,coverage; int_kurtosis; noise_lag1_autocorr; bg_p05; peak_sharpness
+Syncro 1.208,all,0.9994386668778266,7975,7981,peak_density; int_median; coverage; int_skew; noise_roughness
+Syncro 1.208,clean_window,0.997809437268774,1738,1702,int_median; int_skew; total_variation; peak_density; fwhm_hi

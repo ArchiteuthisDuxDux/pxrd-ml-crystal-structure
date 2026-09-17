@@ -1,0 +1,16 @@
+numpy==2.0.1
+pandas==2.3.3
+pyarrow==25.0.0
+scipy==1.15.3
+scikit-learn==1.7.1
+matplotlib==3.10.9
+seaborn==0.13.2
+Pillow==11.1.0
+torch==2.5.1
+gemmi==0.7.5
+ase==3.29.0
+spglib==2.7.0
+pymatgen==2025.10.7
+tqdm==4.68.2
+nbformat==5.11.1
+ipykernel==7.3.0

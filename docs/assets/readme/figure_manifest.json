@@ -1,0 +1,122 @@
+[
+  {
+    "file": "01_pipeline_overview.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 66691
+  },
+  {
+    "file": "02_dataset_scale.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 44959
+  },
+  {
+    "file": "03_rruff_profiles.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 79518
+  },
+  {
+    "file": "04_rruff_acquisition.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 44943
+  },
+  {
+    "file": "05_rruff_labels.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 49381
+  },
+  {
+    "file": "06_opxrd_profiles.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 80155
+  },
+  {
+    "file": "07_opxrd_acquisition.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 56797
+  },
+  {
+    "file": "08_opxrd_labels.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 51650
+  },
+  {
+    "file": "09_target_distributions.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 55402
+  },
+  {
+    "file": "10_generator_physics.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 64716
+  },
+  {
+    "file": "11_generator_validation.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 51245
+  },
+  {
+    "file": "12_domain_shift.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 64691
+  },
+  {
+    "file": "13_model_architecture.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 69131
+  },
+  {
+    "file": "14_experiment_timeline.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 50043
+  },
+  {
+    "file": "15_final_model_comparison.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 46311
+  },
+  {
+    "file": "16_source_specialists.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 44922
+  },
+  {
+    "file": "17_cross_source_transfer.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 42185
+  },
+  {
+    "file": "18_leakage_control.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 74396
+  },
+  {
+    "file": "19_single_phase_ablation.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 45225
+  },
+  {
+    "file": "20_rruff_sg_enrichment.png",
+    "width": 960,
+    "height": 540,
+    "bytes": 67116
+  }
+]

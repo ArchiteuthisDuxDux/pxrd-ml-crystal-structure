@@ -1,0 +1,16 @@
+[
+  "pretrain_v1_full_best.pt",
+  "pretrain_v1_full_last.pt",
+  "pretrain_v2_full_best.pt",
+  "pretrain_v2_full_last.pt",
+  "ft_v1_best.pt",
+  "ft_v1_last.pt",
+  "ft_v2_final.pt",
+  "ft_v3_staged_final.pt",
+  "ft_rruff_only_final.pt",
+  "ft_opxrd_only_final.pt",
+  "ft_combined_no_replay_control_final.pt",
+  "ft_rruff_only_with_rruff_sg_final.pt",
+  "ft_combined_no_replay_control_with_rruff_sg_final.pt",
+  "ft_single_phase_only_with_rruff_sg_final.pt"
+]

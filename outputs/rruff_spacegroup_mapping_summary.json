@@ -1,0 +1,34 @@
+{
+  "rruff_json_records": 1362,
+  "rruff_unique_ids": 1359,
+  "mapping_rows": 1359,
+  "rruff_unique_mineral_names": 806,
+  "ima_records": 6228,
+  "ima_rows_with_rruff_ids": 0,
+  "normalized_name_collisions": 0,
+  "match_method_counts": {
+    "exact_name": 1295,
+    "exact_plain_name": 48,
+    "unmatched": 16
+  },
+  "status_counts": {
+    "matched_ambiguous_spacegroup": 189,
+    "matched_crystal_system_conflict": 3,
+    "matched_no_spacegroup": 16,
+    "matched_unresolved_symbol": 30,
+    "unmatched_name": 16,
+    "usable_after_crystal_system_filter": 128,
+    "usable_unique_spacegroup": 977
+  },
+  "usable_json_records": 1107,
+  "usable_unique_rruff_ids": 1105,
+  "usable_fraction": 0.813098,
+  "unresolved_symbols": {
+    "P2_1/b": 12,
+    "R-32/c": 9,
+    "B2_1/d": 4,
+    "Bbam": 4,
+    "C2_1/d": 2,
+    "F2/d": 1
+  }
+}

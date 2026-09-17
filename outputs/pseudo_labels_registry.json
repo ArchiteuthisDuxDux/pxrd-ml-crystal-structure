@@ -1,0 +1,30 @@
+{
+  "created_utc": "2026-09-05T16:16:29.243509+00:00",
+  "model": "checkpoints/ft_v2_final.pt",
+  "description": "Псевдо-метки для неразмеченных opXRD-спектров (split_role=unlabeled в index_preprocessed.parquet). ЛАБОРАТОРНЫЕ метки (ft_pool_combined) не затронуты и остаются единственным источником ground truth.",
+  "thresholds": {
+    "crystal_system": {
+      "threshold": 0.998,
+      "basis": "калибровка precision>=95% на ft_pool (оптимистично), консервативная надбавка"
+    },
+    "space_group": {
+      "enabled": false,
+      "reason": "precision>=90% недостижим ни при каком пороге (калибровка на ft_pool)"
+    },
+    "elements": {
+      "threshold": 0.85,
+      "basis": "поэлементная калибровка precision>=95% на ft_pool"
+    },
+    "lattice": {
+      "enabled": false,
+      "reason": "регрессия без калибруемой уверенности - риск систематики"
+    }
+  },
+  "counts": {
+    "total_unlabeled": 86368,
+    "labeled_any": 15951,
+    "crystal_system": 16,
+    "elements": 15950
+  },
+  "heads_note": "строка может иметь псевдо-метку одной головы и не иметь другой; в FT это учитывается масками голов"
+}

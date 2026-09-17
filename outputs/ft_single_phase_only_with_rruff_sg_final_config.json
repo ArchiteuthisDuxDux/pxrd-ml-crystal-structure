@@ -1,0 +1,22 @@
+{
+  "source": "RRUFF + opXRD, phase_count == 1 only",
+  "pretrain_checkpoint": "D:\\Users\\user\\Desktop\\DS_XRD_project\\checkpoints\\pretrain_v2_full_best.pt",
+  "config": {
+    "name": "stronger",
+    "lr_backbone": 1.5e-05,
+    "lr_head": 0.0001,
+    "wd": 0.0003
+  },
+  "reference_epochs": 11,
+  "reference_batches_from_all_real": 55,
+  "optimizer_steps": 605,
+  "elements_threshold": 0.3,
+  "nested_cv": true,
+  "paired_outer_folds": true,
+  "primary_evaluation": "same single-phase outer rows for both arms",
+  "synthetic_replay": false,
+  "all_real_rows_reference": 3475,
+  "single_phase_train_rows": 2406,
+  "rruff_rows": 1359,
+  "opxrd_rows": 1047
+}

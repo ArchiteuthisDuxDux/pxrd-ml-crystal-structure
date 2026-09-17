@@ -1,0 +1,7 @@
+{
+  "rruff_json": "D:/path/to/rruff_powder_xrd.json",
+  "rruff_ima_csv": "D:/path/to/ima_database.csv",
+  "opxrd_root": "D:/path/to/opXRD",
+  "cod_parquet": "D:/path/to/cod_structures.parquet",
+  "crystaldb_gzip": "D:/path/to/crystaldb.json.gz"
+}

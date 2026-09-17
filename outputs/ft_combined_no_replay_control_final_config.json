@@ -1,0 +1,16 @@
+{
+  "source": "RRUFF + opXRD",
+  "pretrain_checkpoint": "D:\\Users\\user\\Desktop\\DS_XRD_project\\checkpoints\\pretrain_v2_full_best.pt",
+  "config": {
+    "name": "stronger",
+    "lr_backbone": 1.5e-05,
+    "lr_head": 0.0001,
+    "wd": 0.0003
+  },
+  "epochs": 15,
+  "elements_threshold": 0.3,
+  "nested_cv": true,
+  "paired_source_folds": true,
+  "synthetic_replay": false,
+  "rows": 3475
+}

@@ -1,0 +1,11 @@
+{
+  "rruff_rows": 1359,
+  "opxrd_rows": 2116,
+  "combined_rows": 3475,
+  "rruff_spacegroup_labels": 1105,
+  "rruff_spacegroup_fraction": 0.813098,
+  "rruff_minerals": 806,
+  "rruff_represented_spacegroups": 93,
+  "rruff_output": "D:\\Users\\user\\Desktop\\DS_XRD_project\\data\\clean\\ft_pool_rruff_with_rruff_sg.parquet",
+  "combined_output": "D:\\Users\\user\\Desktop\\DS_XRD_project\\data\\clean\\ft_pool_combined_with_rruff_sg.parquet"
+}
