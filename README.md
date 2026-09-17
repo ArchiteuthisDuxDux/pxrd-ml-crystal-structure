@@ -4,7 +4,7 @@ Physics-informed pretraining and leakage-controlled fine-tuning for multitask po
 
 The project predicts four groups of crystallographic targets from one powder X-ray diffraction (PXRD) pattern:
 
-- lattice parameters: \(a, b, c, \alpha, \beta, \gamma\) and unit-cell volume;
+- lattice parameters: $a, b, c, \alpha, \beta, \gamma$ and unit-cell volume;
 - one of 230 space groups;
 - one of seven crystal systems;
 - a multi-label set of chemical elements.
@@ -65,19 +65,19 @@ The final checkpoint is generated locally and deliberately excluded from Git. It
 
 ### Powder X-ray diffraction experiment
 
-A powdered specimen contains many crystallites in different orientations. A monochromatic incident X-ray beam illuminates the sample, and a detector records diffracted intensity while the scattering angle \(2\theta\) changes. Because many orientations are present, crystallographic plane families satisfying the diffraction condition contribute peaks to a one-dimensional intensity profile.
+A powdered specimen contains many crystallites in different orientations. A monochromatic incident X-ray beam illuminates the sample, and a detector records diffracted intensity while the scattering angle $2\theta$ changes. Because many orientations are present, crystallographic plane families satisfying the diffraction condition contribute peaks to a one-dimensional intensity profile.
 
 Peak positions primarily encode interplanar spacings and unit-cell geometry. Relative intensities depend on the atoms inside the unit cell, their occupancies and positions, symmetry multiplicity, and experimental corrections. Peak widths and baselines additionally carry sample and instrument effects. The ML model therefore does not receive a direct image of a crystal; it receives a noisy, partially observed projection of several coupled physical processes.
 
 ### Bragg condition
 
-For wavelength \(\lambda\), diffraction order \(n\), and interplanar spacing \(d_{hkl}\), a reflection occurs when
+For wavelength $\lambda$, diffraction order $n$, and interplanar spacing $d_{hkl}$, a reflection occurs when
 
 $$
 2d_{hkl}\sin\theta = n\lambda.
 $$
 
-The set of \(d_{hkl}\) values depends on lattice parameters and crystal symmetry. This is why peak locations contain information about \(a,b,c,\alpha,\beta,\gamma\), but the inverse mapping is not unique under noise, missing angular ranges, mixed phases, or severe peak overlap.
+The set of $d_{hkl}$ values depends on lattice parameters and crystal symmetry. This is why peak locations contain information about $a,b,c,\alpha,\beta,\gamma$, but the inverse mapping is not unique under noise, missing angular ranges, mixed phases, or severe peak overlap.
 
 ### Atomic scattering and structure factor
 
@@ -93,30 +93,30 @@ $$
 f_0(s) = \sum_i a_i\exp(-b_i s^2) + c.
 $$
 
-For reflection \((hkl)\), the unit-cell structure factor is
+For reflection $(hkl)$, the unit-cell structure factor is
 
 $$
 F_{hkl} = \sum_j o_j t_j f_j(s)
 \exp\!\left[2\pi i(hx_j + ky_j + lz_j)\right],
 $$
 
-where \(o_j\) is occupancy, \(t_j\) collects thermal or attenuation terms, and \((x_j,y_j,z_j)\) are fractional atomic coordinates. A simplified powder-reflection intensity is then
+where $o_j$ is occupancy, $t_j$ collects thermal or attenuation terms, and $(x_j,y_j,z_j)$ are fractional atomic coordinates. A simplified powder-reflection intensity is then
 
 $$
 I_{hkl} \propto m_{hkl}\lvert F_{hkl}\rvert^2 LP(\theta),
 $$
 
-with reflection multiplicity \(m_{hkl}\) and Lorentz-polarization factor \(LP\).
+with reflection multiplicity $m_{hkl}$ and Lorentz-polarization factor $LP$.
 
 ### Broadening and nuisance effects
 
 The generator randomizes effects that are not fixed by the ideal structure:
 
-- wavelength and the \(K\alpha_1/K\alpha_2\) doublet;
+- wavelength and the $K\alpha_1/K\alpha_2$ doublet;
 - Caglioti-type instrumental broadening,
-  \(H^2 = U\tan^2\theta + V\tan\theta + W\);
+  $H^2 = U\tan^2\theta + V\tan\theta + W$;
 - finite crystallite-size broadening, approximately
-  \(\beta \approx K\lambda/(D\cos\theta)\);
+  $\beta \approx K\lambda/(D\cos\theta)$;
 - preferred orientation and reflection-intensity perturbations;
 - smooth background, local baseline changes, and measurement noise;
 - angular-window truncation and sampling differences.
@@ -219,7 +219,7 @@ The custom reflection engine was checked on 190 structures against `pymatgen.ana
 
 - median profile correlation: **0.9975**;
 - mean profile correlation: **0.9952**;
-- fraction with correlation \(\ge 0.97\): **99.5%**.
+- fraction with correlation $\ge 0.97$: **99.5%**.
 
 ![Generator validation](docs/assets/readme/11_generator_validation.png)
 
@@ -229,7 +229,7 @@ This validates the idealized diffraction engine against an independent implement
 
 All sources are converted to one model representation in [`notebooks/06_preprocessing_and_domain_diagnostics.ipynb`](notebooks/06_preprocessing_and_domain_diagnostics.ipynb):
 
-- common angular domain: \(0^\circ\) to \(90^\circ\) in \(2\theta\);
+- common angular domain: $0^\circ$ to $90^\circ$ in $2\theta$;
 - fixed length: 4,096 intensity bins;
 - square-root intensity transform followed by normalization;
 - a validity mask that preserves which bins were actually observed;
@@ -269,7 +269,7 @@ m_{sys}\mathcal{L}_{sys} +
 m_{el}\mathcal{L}_{el},
 $$
 
-where each \(m\in\{0,1\}\) states whether that row has a valid target for the corresponding head. The model therefore uses partially labeled rows without converting missing values into negative classes or numerical zeros.
+where each $m\in\{0,1\}$ states whether that row has a valid target for the corresponding head. The model therefore uses partially labeled rows without converting missing values into negative classes or numerical zeros.
 
 The training history includes two backbones:
 
@@ -324,8 +324,8 @@ Within a given source and experiment, rows sharing the defined `conn_key` cannot
 The key is an engineering approximation, not a universal chemical identity:
 
 - `phase_compositions` is serialized source metadata, not a fully normalized chemical graph;
-- only lattice parameter \(a\) is rounded, to 0.01 Å; \(b,c\), angles, symmetry, and full structure are not part of the opXRD key;
-- distinct polymorphs can collide if the composition string and rounded \(a\) coincide;
+- only lattice parameter $a$ is rounded, to 0.01 Å; $b,c$, angles, symmetry, and full structure are not part of the opXRD key;
+- distinct polymorphs can collide if the composition string and rounded $a$ coincide;
 - related records can remain separate if composition strings differ syntactically;
 - RRUFF mineral-name grouping is weaker than a persistent specimen or structure identifier;
 - the grouping rule does not globally deduplicate RRUFF against opXRD;
@@ -424,18 +424,18 @@ The table below is read from [`outputs/ft_combined_no_replay_control_with_rruff_
 | Space-group top-5 | 40.04% | 51.14 ± 10.85% | **69.85 ± 6.37%** |
 | Element micro-F1 | 18.10% | 55.26 ± 3.46% | **55.88 ± 4.27%** |
 | Exact element-set accuracy | 0.17% | **21.72 ± 8.01%** | 19.09 ± 4.82% |
-| MAE \(a\), Å | 3.467 | 2.967 ± 0.258 | **2.623 ± 0.331** |
-| Median MAPE \(a\) | 34.24% | — | **19.14 ± 2.10%** |
+| MAE $a$, Å | 3.467 | 2.967 ± 0.258 | **2.623 ± 0.331** |
+| Median MAPE $a$ | 34.24% | — | **19.14 ± 2.10%** |
 | Mean angular MAE | 6.037° | **4.637 ± 0.394°** | 4.830 ± 0.125° |
 | Median volume MAPE | 58.03% | — | **33.05 ± 1.87%** |
 
 ![Final model comparison](docs/assets/readme/15_final_model_comparison.png)
 
-Synthetic pretraining clearly improves crystal-system classification, SG classification, and lattice \(a\) error. It does not dominate every metric: the real-only control is slightly better on exact element-set accuracy and mean angle MAE. The correct conclusion is therefore “better balanced multitask performance,” not “best on every head.”
+Synthetic pretraining clearly improves crystal-system classification, SG classification, and lattice $a$ error. It does not dominate every metric: the real-only control is slightly better on exact element-set accuracy and mean angle MAE. The correct conclusion is therefore “better balanced multitask performance,” not “best on every head.”
 
 ### Final combined model by source
 
-| Source | System accuracy | SG top-1 | SG top-5 | Element micro-F1 | Exact elements | MAE \(a\) | Mean angle MAE |
+| Source | System accuracy | SG top-1 | SG top-5 | Element micro-F1 | Exact elements | MAE $a$ | Mean angle MAE |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | RRUFF | 57.34% | 42.15% | 66.73% | 54.31% | 0.96% | 2.645 Å | 5.746° |
 | opXRD | 67.92% | 56.10% | 79.80% | 61.71% | 47.12% | 2.608 Å | 3.962° |
@@ -446,7 +446,7 @@ The large gap in exact element-set accuracy is a source/label-semantics warning.
 
 Source-only models are evaluated on different test populations, so their within-source CV scores must not be read as one common leaderboard.
 
-| Model and own-domain test | System accuracy | SG top-1 | SG top-5 | Element micro-F1 | Exact elements | MAE \(a\) | Angle MAE |
+| Model and own-domain test | System accuracy | SG top-1 | SG top-5 | Element micro-F1 | Exact elements | MAE $a$ | Angle MAE |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | RRUFF-only + SG enrichment | 57.64% | 43.92% | 67.76% | 54.00% | 1.25% | 2.611 Å | 5.553° |
 | opXRD-only | 69.65% | 53.71% | 73.32% | 62.84% | 47.62% | 2.564 Å | 3.954° |
@@ -459,7 +459,7 @@ The opXRD specialist has very large fold-to-fold variation for SG and element me
 
 The source specialists were applied to the opposite source without fine-tuning.
 
-| Direction | System accuracy | SG top-1 | SG top-5 | Element micro-F1 | Exact elements | MAE \(a\) | Angle MAE |
+| Direction | System accuracy | SG top-1 | SG top-5 | Element micro-F1 | Exact elements | MAE $a$ | Angle MAE |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | RRUFF-only → opXRD | 45.17% | 15.79% | 29.47% | 2.14% | 0.00% | 3.686 Å | 7.322° |
 | opXRD-only → RRUFF | 39.88% | 18.19% | 44.62% | 10.93% | 0.00% | 3.280 Å | 6.950° |
@@ -506,7 +506,7 @@ The final model is selected because it:
 - uses the SG-enriched RRUFF pool;
 - removes synthetic replay during the final real-adaptation stage;
 - uses nested grouped CV and paired source folds;
-- gives the strongest balanced result across system, SG, element F1, and lattice \(a\);
+- gives the strongest balanced result across system, SG, element F1, and lattice $a$;
 - remains directly comparable with the post-enrichment real-only control.
 
 It is not selected because it wins every individual metric. It does not. Source specialists remain useful when deployment is known to match one source, and the real-only control is slightly better for exact element sets and angular MAE.
