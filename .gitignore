@@ -77,14 +77,12 @@ Desktop.ini
 /wandb/
 *.log
 
-# Binary presentation exports are not required to reproduce the ML pipeline.
-/presentation/
-*.pptx
-*.ppt
-
 # Temporary and backup files
 *.tmp
 *.temp
 *.bak
 *.swp
 ~$*
+
+/presentation/
+*.pptx
